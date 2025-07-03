@@ -143,7 +143,7 @@ public class Main {
             System.out.print("Would you like to return to the menu? (yes/no): ");
             String wantsToExit = scanner.nextLine();
 
-            if (wantsToExit.equals("no")) {
+            if (wantsToExit.equalsIgnoreCase("no")) {
                 isExit = true;
             }
 
