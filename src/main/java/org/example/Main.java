@@ -9,6 +9,13 @@ public class Main {
             return;
         }
 
+        for (BankAccount bankAccount: bankAccounts) {
+            if (bankAccount.getAccountNumber() == accountNumber) {
+                System.out.printf("An account with account number %d currently exists.\n", accountNumber);
+                return;
+            }
+        }
+
         BankAccount newBankAccount = new BankAccount(accountNumber, holderName, initialDepositAmount);
         bankAccounts.add(newBankAccount);
 
