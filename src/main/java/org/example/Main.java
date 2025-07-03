@@ -43,17 +43,17 @@ public class Main {
         ArrayList<BankAccount> bankAccounts = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("=== Bank Menu ===");
-        System.out.println("1. Create Account");
-        System.out.println("2. View All Accounts");
-        System.out.println("3. Check Balance");
-        System.out.println("4. Deposit");
-        System.out.println("5. Withdraw");
-        System.out.println("6. Exit");
-
         boolean isExit = false;
 
         do {
+            System.out.println("=== Bank Menu ===");
+            System.out.println("1. Create Account");
+            System.out.println("2. View All Accounts");
+            System.out.println("3. Check Balance");
+            System.out.println("4. Deposit");
+            System.out.println("5. Withdraw");
+            System.out.println("6. Exit");
+
             System.out.print("Enter choice (1-5): ");
             int userChoice = scanner.nextInt();
 
@@ -89,7 +89,6 @@ public class Main {
                     break;
                 default:
                     isExit = true;
-
             }
 
 
