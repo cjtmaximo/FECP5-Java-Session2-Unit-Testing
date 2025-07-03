@@ -1,17 +1,81 @@
 package org.example;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+import java.util.*;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+public class Main {
+    public static void createAccount(ArrayList<BankAccount> bankAccounts, int accountNumber, String holderName, int initialDepositAmount) {
+        if (initialDepositAmount < 0) {
+            System.out.println("Initial deposit amount must not be negative.");
+            return;
         }
+
+        BankAccount newBankAccount = new BankAccount(accountNumber, holderName, initialDepositAmount);
+        bankAccounts.add(newBankAccount);
+
+        System.out.println("Account created successfully!");
+    }
+
+    public static void viewAllAccounts(ArrayList<BankAccount> bankAccounts) {
+        if (bankAccounts.isEmpty()) {
+            System.out.println("There are currently no existing bank accounts.");
+            return;
+        }
+
+        System.out.println("=== All Accounts ===");
+
+        for(BankAccount bankAccount: bankAccounts) {
+            bankAccount.displayInfo();
+        }
+    }
+
+    public static void main(String[] args) {
+        ArrayList<BankAccount> bankAccounts = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("=== Bank Menu ===");
+        System.out.println("1. Create Account");
+        System.out.println("2. View All Accounts");
+        System.out.println("3. Check Balance");
+        System.out.println("4. Deposit");
+        System.out.println("5. Withdraw");
+        System.out.println("6. Exit");
+
+        boolean isExit = false;
+
+        do {
+            System.out.print("Enter choice (1-5): ");
+            int userChoice = scanner.nextInt();
+
+            switch (userChoice) {
+                case 1:
+                    System.out.print("Enter Account Number: ");
+                    int accountNumber = scanner.nextInt();
+                    scanner.nextLine();
+
+                    System.out.print("Enter Holder Name: ");
+                    String holderName = scanner.nextLine();
+
+                    System.out.print("Initial deposit? (yes/no): ");
+                    String isInitialDeposit = scanner.nextLine();
+
+                    int initialDepositAmount = 0;
+                    if (isInitialDeposit.equals("yes")) {
+                        System.out.print("Enter initial deposit amount: ");
+                        initialDepositAmount = scanner.nextInt();
+                    }
+
+                    BankAccount newBankAccount = new BankAccount(accountNumber, holderName, initialDepositAmount);
+                    createAccount(bankAccounts, accountNumber, holderName, initialDepositAmount);
+                    break;
+                case 2:
+                    viewAllAccounts(bankAccounts);
+                    break;
+                default:
+                    isExit = true;
+
+            }
+
+
+        } while (!isExit);
     }
 }
