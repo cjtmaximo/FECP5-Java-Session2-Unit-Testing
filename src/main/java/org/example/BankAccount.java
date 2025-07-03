@@ -8,6 +8,7 @@ public class BankAccount {
     public BankAccount(int accountNumber, String accountHolderName) {
         this.accountNumber = accountNumber;
         this.accountHolderName = accountHolderName;
+        this.availableBalance = 0;
     }
 
     public BankAccount(int accountNumber, String accountHolderName, double availableBalance) {
