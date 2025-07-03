@@ -5,11 +5,17 @@ public class BankAccount {
     private String accountHolderName;
     private double availableBalance;
 
+    public BankAccount(int accountNumber, String accountHolderName) {
+        this.accountNumber = accountNumber;
+        this.accountHolderName = accountHolderName;
+    }
+
     public BankAccount(int accountNumber, String accountHolderName, double availableBalance) {
         this.accountNumber = accountNumber;
         this.accountHolderName = accountHolderName;
         this.availableBalance = availableBalance;
     }
+
 
     public int getAccountNumber() {
         return accountNumber;
