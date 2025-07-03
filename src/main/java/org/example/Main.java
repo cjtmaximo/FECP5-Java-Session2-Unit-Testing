@@ -128,6 +128,7 @@ public class Main {
 
                     System.out.print("Enter withdraw amount: ");
                     int withdrawAmount = scanner.nextInt();
+                    scanner.nextLine();
 
                     withdrawFromAccount(bankAccounts, accountNumberForWithdraw, withdrawAmount);
                     break;
