@@ -28,6 +28,17 @@ public class Main {
         }
     }
 
+    public static void checkBalance(ArrayList<BankAccount> bankAccounts, int accountNumber) {
+        for (BankAccount bankAccount: bankAccounts) {
+            if (bankAccount.getAccountNumber() == accountNumber) {
+                System.out.printf("%s's balance is %f.\n", bankAccount.getAccountHolderName(), bankAccount.getAvailableBalance());
+                return;
+            }
+        }
+
+        System.out.println("Account number does not exist.");
+    }
+
     public static void main(String[] args) {
         ArrayList<BankAccount> bankAccounts = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
@@ -69,6 +80,12 @@ public class Main {
                     break;
                 case 2:
                     viewAllAccounts(bankAccounts);
+                    break;
+                case 3:
+                    System.out.print("Enter Account Number: ");
+                    int accountNumberToCheckBalance = scanner.nextInt();
+
+                    checkBalance(bankAccounts, accountNumberToCheckBalance);
                     break;
                 default:
                     isExit = true;
