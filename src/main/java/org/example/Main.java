@@ -93,7 +93,7 @@ public class Main {
                     String isInitialDeposit = scanner.nextLine();
 
                     int initialDepositAmount = 0;
-                    if (isInitialDeposit.equals("yes")) {
+                    if (isInitialDeposit.equalsIgnoreCase("yes")) {
                         System.out.print("Enter initial deposit amount: ");
                         initialDepositAmount = scanner.nextInt();
                         scanner.nextLine();
