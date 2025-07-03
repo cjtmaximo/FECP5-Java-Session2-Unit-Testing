@@ -39,6 +39,17 @@ public class Main {
         System.out.println("Account number does not exist.");
     }
 
+    public static void deposit(ArrayList<BankAccount> bankAccounts, int accountNumber, int depositAmount) {
+        for (BankAccount bankAccount: bankAccounts) {
+            if (bankAccount.getAccountNumber() == accountNumber) {
+                bankAccount.deposit(depositAmount);
+                return;
+            }
+        }
+
+        System.out.println("Account number does not exist.");
+    }
+
     public static void main(String[] args) {
         ArrayList<BankAccount> bankAccounts = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
@@ -83,9 +94,18 @@ public class Main {
                     break;
                 case 3:
                     System.out.print("Enter Account Number: ");
-                    int accountNumberToCheckBalance = scanner.nextInt();
+                    int accountNumberForCheckBalance = scanner.nextInt();
 
-                    checkBalance(bankAccounts, accountNumberToCheckBalance);
+                    checkBalance(bankAccounts, accountNumberForCheckBalance);
+                    break;
+                case 4:
+                    System.out.print("Enter Account Number: ");
+                    int accountNumberForDeposit = scanner.nextInt();
+
+                    System.out.print("Enter initial deposit amount: ");
+                    int depositAmount = scanner.nextInt();
+
+                    deposit(bankAccounts, accountNumberForDeposit, depositAmount);
                     break;
                 default:
                     isExit = true;
