@@ -108,6 +108,7 @@ public class Main {
                 case 3:
                     System.out.print("Enter Account Number: ");
                     int accountNumberForCheckBalance = scanner.nextInt();
+                    scanner.nextLine();
 
                     checkBalance(bankAccounts, accountNumberForCheckBalance);
                     break;
