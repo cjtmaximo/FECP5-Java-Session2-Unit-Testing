@@ -39,7 +39,7 @@ public class Main {
         System.out.println("Account number does not exist.");
     }
 
-    public static void deposit(ArrayList<BankAccount> bankAccounts, int accountNumber, int depositAmount) {
+    public static void depositToAccount(ArrayList<BankAccount> bankAccounts, int accountNumber, int depositAmount) {
         for (BankAccount bankAccount: bankAccounts) {
             if (bankAccount.getAccountNumber() == accountNumber) {
                 bankAccount.deposit(depositAmount);
@@ -105,7 +105,7 @@ public class Main {
                     System.out.print("Enter initial deposit amount: ");
                     int depositAmount = scanner.nextInt();
 
-                    deposit(bankAccounts, accountNumberForDeposit, depositAmount);
+                    depositToAccount(bankAccounts, accountNumberForDeposit, depositAmount);
                     break;
                 default:
                     isExit = true;
