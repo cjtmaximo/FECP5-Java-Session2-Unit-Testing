@@ -32,6 +32,15 @@ public class BankAccount {
         this.availableBalance += deposit;
     }
 
+    public void withdraw(int withdraw) {
+        if (withdraw > this.availableBalance) {
+            System.out.println("You cannot withdraw more than you have.");
+            return;
+        }
+
+        this.availableBalance -= withdraw;
+    }
+
     public void displayInfo() {
 
     }
