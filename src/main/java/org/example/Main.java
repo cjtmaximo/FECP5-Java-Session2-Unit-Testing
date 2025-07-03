@@ -31,7 +31,7 @@ public class Main {
     public static void checkBalance(ArrayList<BankAccount> bankAccounts, int accountNumber) {
         for (BankAccount bankAccount: bankAccounts) {
             if (bankAccount.getAccountNumber() == accountNumber) {
-                System.out.printf("%s's balance is %f.\n", bankAccount.getAccountHolderName(), bankAccount.getAvailableBalance());
+                System.out.printf("%s's balance is %.2f.\n", bankAccount.getAccountHolderName(), bankAccount.getAvailableBalance());
                 return;
             }
         }
@@ -115,7 +115,7 @@ public class Main {
                     System.out.print("Enter Account Number: ");
                     int accountNumberForDeposit = scanner.nextInt();
 
-                    System.out.print("Enter initial deposit amount: ");
+                    System.out.print("Enter deposit amount: ");
                     int depositAmount = scanner.nextInt();
                     scanner.nextLine();
 
