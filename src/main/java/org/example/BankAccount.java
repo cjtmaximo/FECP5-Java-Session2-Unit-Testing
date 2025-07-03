@@ -43,7 +43,7 @@ public class BankAccount {
 
     public void displayInfo() {
         System.out.printf("Holder Name: %s\n", this.accountHolderName);
-        System.out.printf("Available Balance: %f\n", this.availableBalance);
+        System.out.printf("Available Balance: %.2f\n", this.availableBalance);
     }
 
 }

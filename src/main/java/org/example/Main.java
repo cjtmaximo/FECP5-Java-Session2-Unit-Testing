@@ -50,6 +50,17 @@ public class Main {
         System.out.println("Account number does not exist.");
     }
 
+    public static void withdrawFromAccount(ArrayList<BankAccount> bankAccounts, int accountNumber, int withdrawAmount) {
+        for (BankAccount bankAccount: bankAccounts) {
+            if (bankAccount.getAccountNumber() == accountNumber) {
+                bankAccount.withdraw(withdrawAmount);
+                return;
+            }
+        }
+
+        System.out.println("Account number does not exist.");
+    }
+
     public static void main(String[] args) {
         ArrayList<BankAccount> bankAccounts = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
@@ -67,6 +78,7 @@ public class Main {
 
             System.out.print("Enter choice (1-5): ");
             int userChoice = scanner.nextInt();
+            scanner.nextLine();
 
             switch (userChoice) {
                 case 1:
@@ -84,6 +96,7 @@ public class Main {
                     if (isInitialDeposit.equals("yes")) {
                         System.out.print("Enter initial deposit amount: ");
                         initialDepositAmount = scanner.nextInt();
+                        scanner.nextLine();
                     }
 
                     BankAccount newBankAccount = new BankAccount(accountNumber, holderName, initialDepositAmount);
@@ -104,14 +117,37 @@ public class Main {
 
                     System.out.print("Enter initial deposit amount: ");
                     int depositAmount = scanner.nextInt();
+                    scanner.nextLine();
 
                     depositToAccount(bankAccounts, accountNumberForDeposit, depositAmount);
                     break;
+                case 5:
+                    System.out.print("Enter Account Number: ");
+                    int accountNumberForWithdraw = scanner.nextInt();
+
+                    System.out.print("Enter withdraw amount: ");
+                    int withdrawAmount = scanner.nextInt();
+
+                    withdrawFromAccount(bankAccounts, accountNumberForWithdraw, withdrawAmount);
+                    break;
                 default:
                     isExit = true;
+                    break;
             }
 
+            if (isExit) {
+                break;
+            }
 
+            System.out.print("\n");
+            System.out.print("Would you like to return to the menu? (yes/no): ");
+            String wantsToExit = scanner.nextLine();
+
+            if (wantsToExit.equals("no")) {
+                isExit = true;
+            }
+
+            System.out.print("\n");
         } while (!isExit);
     }
 }
