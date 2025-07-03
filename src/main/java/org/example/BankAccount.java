@@ -39,6 +39,11 @@ public class BankAccount {
             return;
         }
 
+        if (withdraw <= 0) {
+            System.out.println("You cannot withdraw 0 or a negative amount");
+            return;
+        }
+
         this.availableBalance -= withdraw;
         System.out.printf("%s's new balance is %.2f.\n", this.getAccountHolderName(), this.getAvailableBalance());
     }
