@@ -30,6 +30,7 @@ public class BankAccount {
         }
 
         this.availableBalance += deposit;
+        System.out.printf("%s's new balance is %.2f.\n", this.getAccountHolderName(), this.getAvailableBalance());
     }
 
     public void withdraw(int withdraw) {
@@ -39,6 +40,7 @@ public class BankAccount {
         }
 
         this.availableBalance -= withdraw;
+        System.out.printf("%s's new balance is %.2f.\n", this.getAccountHolderName(), this.getAvailableBalance());
     }
 
     public void displayInfo() {
